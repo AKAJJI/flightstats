@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/plane_info_fragment"
+    tools:context=".ui.planeinfo.PlaneInfoFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="100"
+        android:background="@color/cardview_light_background">
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="40"
+            android:id="@+id/map_container">
+
+           <com.google.android.gms.maps.MapView
+                android:id="@+id/plane_map"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </RelativeLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/content_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="60">
+
+
+            <TextView
+                android:id="@+id/icao24_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:textColor="#2196F3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="icao24 :"
+                android:textSize="11sp"/>
+
+            <TextView
+                android:id="@+id/icao24_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="16dp"
+                android:text="N/A"
+                android:textColor="#000000"
+                android:textSize="11sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/callsign_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="140dp"
+                android:text="Callsign :"
+                android:textColor="#2196F3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:textSize="11sp"/>
+
+            <TextView
+                android:id="@+id/callsign_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="260dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="N/A"
+                android:textColor="#050505"
+                android:textSize="11sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/origin_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textColor="#2196F3"
+                app:layout_constraintStart_toStartOf="@+id/icao24_txt"
+                app:layout_constraintTop_toBottomOf="@+id/icao24_txt"
+                android:text="Origin :"
+                android:textSize="11sp"/>
+
+            <TextView
+                android:id="@+id/origin_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="N/A"
+                android:textColor="#070707"
+                android:textSize="11sp"
+                app:layout_constraintStart_toStartOf="@+id/icao24_value"
+                app:layout_constraintTop_toBottomOf="@+id/icao24_value" />
+
+            <TextView
+                android:id="@+id/time_pos_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textColor="#2196F3"
+                app:layout_constraintStart_toStartOf="@+id/callsign_txt"
+                app:layout_constraintTop_toBottomOf="@+id/callsign_txt"
+                android:text="Time_position :"
+                android:textSize="11sp"/>
+
+            <TextView
+                android:id="@+id/time_pos_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="N/A"
+                android:textColor="#030303"
+                app:layout_constraintStart_toStartOf="@+id/callsign_value"
+                app:layout_constraintTop_toBottomOf="@+id/callsign_value"
+                android:textSize="11sp"/>
+
+            <TextView
+                android:id="@+id/last_con_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Last_contact :"
+                android:textColor="#2196F3"
+                app:layout_constraintStart_toStartOf="@+id/origin_txt"
+                app:layout_constraintTop_toBottomOf="@+id/origin_txt"
+                android:textSize="11sp"/>
+
+            <TextView
+                android:id="@+id/last_con_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="N/A"
+                android:textColor="#050505"
+                app:layout_constraintStart_toStartOf="@+id/origin_value"
+                app:layout_constraintTop_toBottomOf="@+id/origin_value"
+                android:textSize="11sp"/>
+
+            <TextView
+                android:id="@+id/longitude_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Longitude :"
+                android:textColor="#2196F3"
+                app:layout_constraintStart_toStartOf="@+id/time_pos_txt"
+                app:layout_constraintTop_toBottomOf="@+id/time_pos_txt"
+                android:textSize="11sp"/>
+
+            <TextView
+                android:id="@+id/longitude_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="N/A"
+                android:textColor="#070707"
+                app:layout_constraintStart_toStartOf="@+id/time_pos_value"
+                app:layout_constraintTop_toBottomOf="@+id/time_pos_value"
+                android:textSize="11sp"/>
+
+            <TextView
+                android:id="@+id/latitude_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Latitude :"
+                android:textColor="#2196F3"
+                app:layout_constraintStart_toStartOf="@+id/last_con_txt"
+                app:layout_constraintTop_toBottomOf="@+id/last_con_txt"
+                android:textSize="11sp"/>
+
+            <TextView
+                android:id="@+id/latitude_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="N/A"
+                android:textColor="#020202"
+                app:layout_constraintStart_toStartOf="@+id/last_con_value"
+                app:layout_constraintTop_toBottomOf="@+id/last_con_value"
+                android:textSize="11sp"/>
+
+            <TextView
+                android:id="@+id/bar_alt_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Barometre_alt :"
+                android:textColor="#2196F3"
+                app:layout_constraintStart_toStartOf="@+id/longitude_txt"
+                app:layout_constraintTop_toBottomOf="@+id/longitude_txt"
+                android:textSize="11sp"/>
+
+            <TextView
+                android:id="@+id/bar_alt_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="N/A"
+                android:textColor="#000000"
+                app:layout_constraintStart_toStartOf="@+id/longitude_value"
+                app:layout_constraintTop_toBottomOf="@+id/longitude_value"
+                android:textSize="11sp"/>
+
+            <TextView
+                android:id="@+id/on_ground_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="On_ground :"
+                android:textColor="#2196F3"
+                app:layout_constraintStart_toStartOf="@+id/latitude_txt"
+                app:layout_constraintTop_toBottomOf="@+id/latitude_txt"
+                android:textSize="11sp"/>
+
+            <TextView
+                android:id="@+id/on_ground_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="N/A"
+                android:textColor="#000000"
+                app:layout_constraintStart_toStartOf="@+id/latitude_value"
+                app:layout_constraintTop_toBottomOf="@+id/latitude_value"
+                android:textSize="11sp"/>
+
+            <TextView
+                android:id="@+id/velocity_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Velocity :"
+                android:textColor="#2196F3"
+                app:layout_constraintStart_toStartOf="@+id/bar_alt_txt"
+                app:layout_constraintTop_toBottomOf="@+id/bar_alt_txt"
+                android:textSize="11sp"/>
+
+            <TextView
+                android:id="@+id/velocity_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="N/A"
+                android:textColor="#000000"
+                app:layout_constraintStart_toStartOf="@+id/bar_alt_value"
+                app:layout_constraintTop_toBottomOf="@+id/bar_alt_value"
+                android:textSize="11sp"/>
+
+            <TextView
+                android:id="@+id/true_track_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="True_track :"
+                android:textColor="#2196F3"
+                app:layout_constraintStart_toStartOf="@+id/on_ground_txt"
+                app:layout_constraintTop_toBottomOf="@+id/on_ground_txt"
+                android:textSize="11sp"/>
+
+            <TextView
+                android:id="@+id/true_track_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="N/A"
+                android:textColor="#000000"
+                app:layout_constraintStart_toStartOf="@+id/on_ground_value"
+                app:layout_constraintTop_toBottomOf="@+id/on_ground_value"
+                android:textSize="11sp"/>
+
+            <TextView
+                android:id="@+id/vertical_rate_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textColor="#2196F3"
+                app:layout_constraintStart_toStartOf="@+id/velocity_txt"
+                app:layout_constraintTop_toBottomOf="@+id/velocity_txt"
+                android:text="Vertical_rate :"
+                android:textSize="11sp"/>
+
+            <TextView
+                android:id="@+id/vertical_rate_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="N/A"
+                android:textColor="#000000"
+                app:layout_constraintStart_toStartOf="@+id/velocity_value"
+                app:layout_constraintTop_toBottomOf="@+id/velocity_value"
+                android:textSize="11sp"/>
+
+            <TextView
+                android:id="@+id/sensor_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Sensor :"
+                android:textColor="#2196F3"
+                app:layout_constraintStart_toStartOf="@+id/true_track_txt"
+                app:layout_constraintTop_toBottomOf="@+id/true_track_txt"
+                android:textSize="11sp"/>
+
+            <TextView
+                android:id="@+id/sensor_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="N/A"
+                android:textColor="#000000"
+                app:layout_constraintStart_toStartOf="@+id/true_track_value"
+                app:layout_constraintTop_toBottomOf="@+id/true_track_value"
+                android:textSize="11sp"/>
+
+            <TextView
+                android:id="@+id/textView25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Geo_altitude :"
+                android:textColor="#2196F3"
+                app:layout_constraintStart_toStartOf="@+id/vertical_rate_txt"
+                app:layout_constraintTop_toBottomOf="@+id/vertical_rate_txt"
+                android:textSize="11sp"/>
+
+            <TextView
+                android:id="@+id/geo_altitude_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="N/A"
+                android:textColor="#000000"
+                app:layout_constraintStart_toStartOf="@+id/vertical_rate_value"
+                app:layout_constraintTop_toBottomOf="@+id/vertical_rate_value"
+                android:textSize="11sp"/>
+
+            <TextView
+                android:id="@+id/squawk_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Squawk :"
+                android:textColor="#2196F3"
+                app:layout_constraintStart_toStartOf="@+id/sensor_txt"
+                app:layout_constraintTop_toBottomOf="@+id/sensor_txt"
+                android:textSize="11sp"/>
+
+            <TextView
+                android:id="@+id/squawk_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="N/A"
+                android:textColor="#000000"
+                app:layout_constraintStart_toStartOf="@+id/sensor_value"
+                app:layout_constraintTop_toBottomOf="@+id/sensor_value"
+                android:textSize="11sp"/>
+
+            <TextView
+                android:id="@+id/spi_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Spi :"
+                android:textColor="#2196F3"
+                app:layout_constraintStart_toStartOf="@+id/textView25"
+                app:layout_constraintTop_toBottomOf="@+id/textView25"
+                android:textSize="11sp"/>
+
+            <TextView
+                android:id="@+id/spi_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="N/A"
+                android:textColor="#000000"
+                app:layout_constraintStart_toStartOf="@+id/geo_altitude_value"
+                app:layout_constraintTop_toBottomOf="@+id/geo_altitude_value"
+                android:textSize="11sp"/>
+
+            <TextView
+                android:id="@+id/pos_src_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Position_src :"
+                android:textColor="#2196F3"
+                app:layout_constraintStart_toStartOf="@+id/squawk_txt"
+                app:layout_constraintTop_toBottomOf="@+id/squawk_txt"
+                android:textSize="11sp"/>
+
+            <TextView
+                android:id="@+id/pos_src_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="N/A"
+                android:textColor="#000000"
+                app:layout_constraintStart_toStartOf="@+id/squawk_value"
+                app:layout_constraintTop_toBottomOf="@+id/squawk_value"
+                android:textSize="11sp"/>
+
+            <Button
+                android:id="@+id/derniers_vols_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="10dp"
+                android:text="Derniers Vols"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
